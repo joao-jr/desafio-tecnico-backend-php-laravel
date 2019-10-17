@@ -31,6 +31,10 @@ class Quotation extends Model
     	'updated_at'
     ];
 
+    protected $hidden = [
+    	'password',
+    ];
+
 
 
 
