@@ -21,7 +21,7 @@ class Quotation extends Model
     	'uf',
     	'zip_code',
     	'contact_name',
-    	'contact_emal',
+    	'contact_email',
     	'contact_phone',
     	'status',
     ];
@@ -34,8 +34,6 @@ class Quotation extends Model
     protected $hidden = [
     	'password',
     ];
-
-
 
 
     /**

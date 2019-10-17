@@ -17,3 +17,8 @@ use Illuminate\Http\Request;
 
 // Rotas não protegidas
 Route::post('/user/login', 'Api\UserController@login');
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
+    Route::name('user::')->prefix('user')->group(function () {
+        Route::post('/quotation', 'UserController@createQuotation');
+    });
+});
