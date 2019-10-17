@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -16,5 +17,9 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
         ]);
+
+        // assign user to admin role
+        $user = User::where('email', 'admin@gmail.com')->first();
+        $user->assignRole('admin');
     }
 }
