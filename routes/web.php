@@ -17,4 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Web\HomeController@index')->name('home');
+
+Route::group([
+	'namespace' => 'Web',
+	'middleware' => [
+		'role:admin|publisher',
+		'permission:edit quotations'
+	]
+], function () {
+	// Route::get('/home', 'HomeController@index')->name('home');
+    // Route::resource('quotations', 'QuotationController');
+    // Route::resource('users', 'UserController');
+});
